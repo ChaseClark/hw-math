@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 print('preprocessing data...')
+print()
 
 # function to load the test images from img folder
 def load(path):
@@ -134,5 +135,5 @@ print(len(data))
 
 df = pd.DataFrame(data, index=None)
 df.to_csv('ml\\training_data.csv', index=False)
-
+print()
 print('preprocessing finished...')
