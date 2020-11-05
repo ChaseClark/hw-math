@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 from keras import backend as K
@@ -12,9 +13,6 @@ from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D
 import tensorflow as tf
 import keras.backend.tensorflow_backend as tfback
-
-print("tf.__version__ is", tf.__version__)
-print("tf.keras.__version__ is:", tf.keras.__version__)
 
 # injection method to fix issue with mismatching tf and keras versions 
 # https://github.com/keras-team/keras/issues/13684
@@ -37,7 +35,7 @@ K.set_image_data_format('channels_first')
 print('training starting...')
 print()
 
-df = pd.read_csv('ml\\training_data.csv', index_col=False)
+df = pd.read_csv(os.path.join('ml','training_data.csv'), index_col=False)
 # last col is labels
 # todo do not hardcode this value
 col_len = len(df.columns)-1

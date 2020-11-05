@@ -3,3 +3,4 @@ ml/img
 *.csv
 data.rar
 extracted_img/
+*.DS_STORE

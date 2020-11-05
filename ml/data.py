@@ -49,91 +49,89 @@ def load(path):
 
 data = []
 # 0
-data = load('ml\img\\0')
+data = load(os.path.join('ml','img','0'))
 for i in range(0,len(data)):
     data[i]=np.append(data[i],['0'])
 print(len(data))
 
 # 1
-data1 = load('ml\img\\1')
+data1 = load(os.path.join('ml','img','1'))
 for i in range(0,len(data1)):
     data1[i]=np.append(data1[i],['1'])
 data = np.concatenate((data,data1))
 print(len(data))
 
 # 2
-data2 = load('ml\img\\2')
+data2 = load(os.path.join('ml','img','2'))
 for i in range(0,len(data2)):
     data2[i]=np.append(data2[i],['2'])
 data = np.concatenate((data,data2))
 print(len(data))
 
 # 3
-data3 = load('ml\img\\3')
+data3 = load(os.path.join('ml','img','3'))
 for i in range(0,len(data3)):
     data3[i]=np.append(data3[i],['3'])
 data = np.concatenate((data,data3))
 print(len(data))
 
 # 4
-data4 = load('ml\img\\4')
+data4 = load(os.path.join('ml','img','4'))
 for i in range(0,len(data4)):
     data4[i]=np.append(data4[i],['4'])
 data = np.concatenate((data,data4))
 print(len(data))
 
 # 5
-data5 = load('ml\img\\5')
+data5 = load(os.path.join('ml','img','5'))
 for i in range(0,len(data5)):
     data5[i]=np.append(data5[i],['5'])
 data = np.concatenate((data,data5))
 print(len(data))
 
 # 6
-data6 = load('ml\img\\6')
+data6 = load(os.path.join('ml','img','6'))
 for i in range(0,len(data6)):
     data6[i]=np.append(data6[i],['6'])
 data = np.concatenate((data,data6))
 print(len(data))
 
 # 7
-data7 = load('ml\img\\7')
+data7 = load(os.path.join('ml','img','7'))
 for i in range(0,len(data7)):
     data7[i]=np.append(data7[i],['7'])
 data = np.concatenate((data,data7))
 print(len(data))
 
 # 8
-data8 = load('ml\img\\8')
+data8 = load(os.path.join('ml','img','8'))
 for i in range(0,len(data8)):
     data8[i]=np.append(data8[i],['8'])
 data = np.concatenate((data,data8))
 print(len(data))
 
 # 9
-data9 = load('ml\img\\9')
+data9 = load(os.path.join('ml','img','9'))
 for i in range(0,len(data9)):
     data9[i]=np.append(data9[i],['9'])
 data = np.concatenate((data,data9))
 print(len(data))
 
 # assign + to 10
-data10 = load('ml\img\\+')
+data10 = load(os.path.join('ml','img','+'))
 for i in range(0,len(data10)):
     data10[i]=np.append(data10[i],['10'])
 data = np.concatenate((data,data10))
 print(len(data))
 
 # -
-data11 = load('ml\img\\-')
+data11 = load(os.path.join('ml','img','-'))
 for i in range(0,len(data11)):
     data11[i]=np.append(data11[i],['11'])
 data = np.concatenate((data,data11))
 print(len(data))
 
-
-
 df = pd.DataFrame(data, index=None)
-df.to_csv('ml\\training_data.csv', index=False)
+df.to_csv(os.path.join('ml','training_data.csv'), index=False)
 print()
 print('preprocessing finished...')

@@ -1,3 +1,4 @@
+import os
 import cv2
 import numpy as np
 from keras import backend as K
@@ -121,9 +122,9 @@ def eval_image(path):
             equation=equation+'-'
     print(f'{equation} = {eval(equation)}') 
 
-eval_image('ml\\test_img\\5.png')
-eval_image('ml\\test_img\\test1.png')
-eval_image('ml\\test_img\\test2.png')
+eval_image(os.path.join('ml','test_img','5.png'))
+eval_image(os.path.join('ml','test_img','test1.png'))
+eval_image(os.path.join('ml','test_img','test2.png'))
 
 print()
 print('testing finished...')
