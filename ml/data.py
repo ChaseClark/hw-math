@@ -25,8 +25,8 @@ def load(path):
             # contours https://docs.opencv.org/master/d4/d73/tutorial_py_contours_begin.html
             ret,contours,ret=cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
             contour = sorted(contours, key=lambda ctr:cv2.boundingRect(ctr)[0])
-            w=int(28)
-            h=int(28)
+            w=28
+            h=28
             maxi=0
             # bounding rect https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contour_features/py_contour_features.html 
             for c in contour:
