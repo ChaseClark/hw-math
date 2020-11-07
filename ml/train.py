@@ -58,15 +58,28 @@ for i in range(df_len):
 
 # create model
 model = Sequential()
+# 30 convolution filters, kernel size of 5x5
+# input shape has a depth of 1, width and height of 28
+# relu activation ignores negative values
 model.add(Conv2D(30, (5, 5), input_shape=(1 , 28, 28), activation='relu'))
+# half the input, summarize features
 model.add(MaxPooling2D(pool_size=(2, 2)))
+# 15 output filters, smaller kernel size
 model.add(Conv2D(15, (3, 3), activation='relu'))
+# half the input again
 model.add(MaxPooling2D(pool_size=(2, 2)))
+# drop 20 percent of inputs to help prevent overfitting
 model.add(Dropout(0.2))
+# flatten the input for the dense layer
 model.add(Flatten())
+# dense layer with an output of 128
 model.add(Dense(128, activation='relu'))
+# dense layer with an output of 50
 model.add(Dense(50, activation='relu'))
+# final dense layer with an output of the number of classes we have
 model.add(Dense(num_classes, activation='softmax'))
+
+model.summary()
 
 # Compile model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
