@@ -126,6 +126,7 @@ eval_image(os.path.join('ml','test_img','5.png'))
 eval_image(os.path.join('ml','test_img','test1.png'))
 eval_image(os.path.join('ml','test_img','test2.png'))
 eval_image(os.path.join('ml','test_img','test3.png'))
+eval_image(os.path.join('ml','test_img','test4.png')) # fails due to poor handwriting
 
 print()
 print('testing finished...')
