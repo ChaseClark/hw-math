@@ -121,12 +121,19 @@ def eval_image(path):
         if(result[0]==11):
             equation=equation+'-'
     print(f'{equation} = {eval(equation)}') 
-
+    
+print()
+print()
 eval_image(os.path.join('ml','test_img','5.png'))
+print()
 eval_image(os.path.join('ml','test_img','test1.png'))
+print()
 eval_image(os.path.join('ml','test_img','test2.png'))
+print()
 eval_image(os.path.join('ml','test_img','test3.png'))
-eval_image(os.path.join('ml','test_img','test4.png')) # fails due to poor handwriting
+print()
+eval_image(os.path.join('ml','test_img','test4.png'))
+print()
 
 print()
 print('testing finished...')

@@ -13,7 +13,8 @@ from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D
 import tensorflow as tf
 import keras.backend.tensorflow_backend as tfback
-
+from keras.utils import plot_model
+import matplotlib.pyplot as plt
 # injection method to fix issue with mismatching tf and keras versions 
 # https://github.com/keras-team/keras/issues/13684
 def _get_available_gpus():
@@ -37,7 +38,6 @@ print()
 
 df = pd.read_csv(os.path.join('ml','training_data.csv'), index_col=False)
 # last col is labels
-# todo do not hardcode this value
 col_len = len(df.columns)-1
 # print(col_len)
 labels = df[[str(col_len)]]
@@ -85,8 +85,18 @@ model.summary()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit model
-model.fit(np.array(arr), cat, epochs=10, batch_size=200, shuffle=True, verbose=1)
+history = model.fit(np.array(arr), cat, epochs=10, batch_size=200, shuffle=True, verbose=1)
 
+#plot model
+#print(history.history)
+loss = history.history['loss']
+accuracy = history.history['accuracy']
+plt.plot(loss)
+plt.plot(accuracy)
+plt.legend(['loss', 'accuracy'])
+plt.show()
+
+plot_model(model, to_file='model.png', show_shapes=True, dpi=400)
 
 model_json = model.to_json()
 with open("model.json", "w") as json_file:
